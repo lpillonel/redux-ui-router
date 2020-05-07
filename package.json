@@ -8,7 +8,9 @@
     "clean": "rm -rf lib",
     "test": "npm run lint; NODE_ENV=test node node_modules/.bin/mocha --compilers js:babel-register --recursive --require src/__tests__/index.js src/**/*.test.js",
     "test:live": "npm run lint; NODE_ENV=test node node_modules/.bin/mocha --compilers js:babel-register --recursive --require src/__tests__/index.js -w src/**/*.test.js",
-    "build": "npm run clean; npm run test; node node_modules/.bin/babel src --out-dir lib"
+    "build": "npm run clean; npm run test; node node_modules/.bin/babel src --out-dir lib",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,8 @@
   "author": "Neil Fenton (neilff)",
   "license": "ISC",
   "dependencies": {
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "snyk": "^1.319.1"
   },
   "devDependencies": {
     "angular": "^1.4.x < 2.0.0",
@@ -42,5 +45,6 @@
   },
   "engines": {
     "node": ">=6.0.0"
-  }
+  },
+  "snyk": true
 }
